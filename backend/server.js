@@ -5,7 +5,12 @@ const expensesRouter = require('./routes/expenses');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+// Enable CORS for all origins (production should restrict this)
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type']
+}));
 app.use(express.json());
 
 app.use('/expenses', expensesRouter);

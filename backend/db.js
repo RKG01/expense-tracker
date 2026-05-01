@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-const dbPath = process.env.NODE_ENV === 'test'
+const dbPath = process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'production'
   ? ':memory:'
   : path.join(__dirname, 'expenses.db');
 const db = new sqlite3.Database(dbPath);

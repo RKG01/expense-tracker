@@ -71,6 +71,45 @@ The frontend is configured to proxy `/expenses` to `http://localhost:3001` durin
 
 Frontend runs on http://localhost:5173, backend on http://localhost:3001.
 
+## Deployment
+
+### Deploy Backend (Railway/Vercel)
+
+**Option 1: Railway (Recommended)**
+1. Go to https://railway.app
+2. Click "New Project" → "Deploy from GitHub"
+3. Select your repo and the `backend` folder as root
+4. Railway auto-detects Node.js and deploys
+5. Get your backend URL from Railway dashboard (e.g., `https://your-app.railway.app`)
+
+**Option 2: Heroku**
+1. Install Heroku CLI
+2. Run: `heroku create expense-tracker-api`
+3. Run: `git push heroku main` (from backend folder)
+
+### Deploy Frontend (Vercel)
+
+1. Go to https://vercel.com
+2. Click "Import Project" → Select GitHub repo
+3. Set root directory to `frontend`
+4. Add environment variable: `VITE_API_BASE=https://your-backend-url.railway.app`
+5. Deploy!
+
+### Environment Variables
+
+**Frontend (.env.production)**
+```
+VITE_API_BASE=https://your-backend-url.railway.app
+```
+
+**Backend**
+- `NODE_ENV=production` (set automatically on Railway/Vercel)
+- `PORT` (set automatically, default 3001)
+
+### Live URLs
+- Frontend: Available from Vercel dashboard
+- Backend: Available from Railway dashboard
+
 ## API
 
 - POST /expenses: Create expense
