@@ -7,7 +7,9 @@ const PORT = process.env.PORT || 3001;
 
 // Enable CORS for all origins (production should restrict this)
 app.use(cors({
-  origin: '*',
+  origin: process.env.NODE_ENV === 'production'
+    ? ['https://expense-tracker-frontend.vercel.app', 'https://expense-tracker-rkg01.vercel.app']
+    : '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type']
 }));
