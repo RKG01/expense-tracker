@@ -114,3 +114,27 @@ VITE_API_BASE=https://your-backend-url.railway.app
 
 - POST /expenses: Create expense
 - GET /expenses?category=food&sort=date_desc: Get expenses
+
+## Updated Deployment Instructions
+
+### Frontend (Vercel)
+1. Go to [vercel.com](https://vercel.com) and sign up
+2. Click "Import Project" → "From GitHub"
+3. Select your `expense-tracker` repository
+4. Configure:
+   - **Root Directory**: `frontend`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+5. Add Environment Variable:
+   - **Name**: `VITE_API_BASE`
+   - **Value**: Your backend URL (from Railway deployment)
+6. Click "Deploy"
+
+### Backend (Railway)
+1. Go to [railway.app](https://railway.app) and sign up
+2. Click "Create New" → "From GitHub Repo"
+3. Select your `expense-tracker` repository
+4. Configure:
+   - **Root Directory**: `backend`
+   - **Environment**: `NODE_ENV=production`
+5. Click "Deploy"
