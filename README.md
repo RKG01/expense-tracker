@@ -73,19 +73,46 @@ Frontend runs on http://localhost:5173, backend on http://localhost:3001.
 
 ## Deployment
 
-### Deploy Backend (Railway/Vercel)
+### Deploy Backend (Multiple Options)
 
-**Option 1: Railway (Recommended)**
-1. Go to https://railway.app
-2. Click "New Project" → "Deploy from GitHub"
-3. Select your repo and the `backend` folder as root
-4. Railway auto-detects Node.js and deploys
-5. Get your backend URL from Railway dashboard (e.g., `https://your-app.railway.app`)
+#### Option 1: Railway (Recommended - Free)
+1. Go to [railway.app](https://railway.app) and sign up
+2. Click "Create New" → "From GitHub Repo"
+3. Select your `expense-tracker` repository
+4. Configure:
+   - **Root Directory**: `backend`
+   - **Environment**: `NODE_ENV=production`
+5. Click "Deploy"
 
-**Option 2: Heroku**
-1. Install Heroku CLI
-2. Run: `heroku create expense-tracker-api`
-3. Run: `git push heroku main` (from backend folder)
+#### Option 2: Vercel (Free)
+1. Go to [vercel.com](https://vercel.com) and sign up
+2. Click "Import Project" → "From GitHub"
+3. Select your `expense-tracker` repository
+4. Configure:
+   - **Root Directory**: `backend`
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+5. Add Environment Variable: `NODE_ENV=production`
+6. Click "Deploy"
+
+#### Option 3: Render (Free)
+1. Go to [render.com](https://render.com) and sign up
+2. Click "New" → "Web Service"
+3. Connect your GitHub repo
+4. Configure:
+   - **Root Directory**: `backend`
+   - **Runtime**: `Node`
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+5. Add Environment Variable: `NODE_ENV=production`
+6. Click "Create Web Service"
+
+#### Option 4: Heroku (Free Tier Available)
+1. Install Heroku CLI: `npm install -g heroku`
+2. Login: `heroku login`
+3. Create app: `heroku create expense-tracker-api`
+4. Set environment: `heroku config:set NODE_ENV=production`
+5. Deploy: `git push heroku main` (from backend folder)
 
 ### Deploy Frontend (Vercel)
 
